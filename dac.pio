@@ -1,0 +1,12 @@
+.program dac_stream
+
+; Configuration:
+; - OUT pins: 10 pins (GPIO 0-9)
+; - Autopull: Enabled, Threshold 32
+; - Shift direction: Right (LSB first)
+; - 1 Sample per 32-bit FIFO word (zero padded or whatever)
+
+.wrap_target
+    out pins, 10    ; Take 10 bits from OSR to pins
+    out null, 22    ; Discard the remaining 22 bits
+.wrap
